@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Chart</title>
+</head>
+<body>
+	<canvas id="myChart">
+		Canvas not supported.
+	</canvas>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+	<script>
+		(function() {
+			'use strict';
+
+			var type = 'radar';
+
+			var data = {
+				labels: ['PHP', 'Ruby', 'Python', 'JavaScript', 'HTML'],
+				datasets: [{
+					label: '@taguchi',
+					data: [40, 50, 70, 30, 80],
+					backgroundColor: 'rgba(255, 0, 0, 0.3)'
+				}, {
+					label: '@fkoji',
+					data: [90, 62, 34, 80, 48],
+					backgroundColor: 'rgba(0, 0, 255, 0.3)'
+				}]
+			};
+			var options = {
+				scale: {
+					ticks: {
+						beginAtZero: true,
+						suggestedMax: 100,
+						stepSize: 20,
+					}
+				}
+			};
+
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: type,
+				data: data,
+				options: options
+			})
+		})();
+
+	</script>
+</body>
+</html>

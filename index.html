@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Chart</title>
+</head>
+<body>
+	<canvas id="myChart">
+		Canvas not supported.
+	</canvas>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+	<script>
+		(function() {
+			'use strict';
+
+			// var type = 'pie';
+			var type = 'doughnut';
+
+			var data = {
+				labels: ['YES', 'NO', 'Maybe'],
+				datasets: [{
+					data: [122, 53, 33],
+					backgroundColor: ['tomato', 'skyblue', 'gray']
+				}]
+			};
+			var options = {
+				cutoutPercentage: 40
+			};
+
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: type,
+				data: data,
+				options: options
+			})
+		})();
+
+	</script>
+</body>
+</html>
